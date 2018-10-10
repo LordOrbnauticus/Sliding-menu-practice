@@ -1,6 +1,29 @@
 import React, { Component } from 'react';
 
 export default class MenuContainer extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            visible: false
+        };
+
+        this.toggleMenu = this.toggleMenu.bind(this);
+        this.handleMouseDown =this.handleMouseDown.bind(this);
+    }
+
+    handleMouseDown(e) {
+        this.toggleMenu();
+
+        console.log("a click!");
+        e.stopPropagation();
+    }
+
+    toggleMenu() {
+        this.setState({ visible: !this.state.visible });
+    }
+
+    
     render() {
         return(
             <div>
